@@ -102,10 +102,6 @@
     .btn {
         @apply bg-gray-300 inline-block p-2 mt-4;
     }
-    .a11ymenu--subtext {
-        @apply block text-sm;
-        flex-basis: 100%;
-    }
     /* -------------------------------------------------- *
     * Menu
     * -------------------------------------------------- */
@@ -207,6 +203,10 @@
         .a11ymenu__menu ul {
             @apply absolute;
         }
+        .a11ymenu__menu>li>a,
+        .a11ymenu__menu>li>.separator {
+            @apply justify-center;
+        }
         .a11ymenu__menu>li>a+ul,
         .a11ymenu__menu>li>.separator+ul,
         .a11ymenu__menu>li>a+button+ul,
@@ -234,6 +234,10 @@
         }
     }
     /* ============ Menu Styles ============ */
+    .a11ymenu--subtext {
+        @apply flex text-sm;
+        flex-basis: 100%;
+    }
     /* Submenus */
     .a11ymenu__menu>ul {
         @apply -mt-1;
@@ -330,7 +334,10 @@
             content: "- - ";
         }
     }
-    @media md {
+    @screen md {
+        .a11ymenu--subtext {
+            @apply justify-center;
+        }
         .a11ymenu__menu>li>a,
         .a11ymenu__menu>li>.separator {
             @apply text-center justify-center;
