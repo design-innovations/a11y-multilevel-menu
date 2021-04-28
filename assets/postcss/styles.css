@@ -268,40 +268,42 @@
         .a11ymenu__menu .has-submenu>button {
             @apply m-1 rounded border-solid border border-gray-400;
         }
-        /* Arrow */
+        /* Expand/collapse icon */
         .a11ymenu__menu .has-submenu button>span {
             @apply p-1;
         }
-        .no-js .a11ymenu__menu .has-submenu .has-submenu {
-            @apply relative flex w-full h-full flex-row justify-center items-center;
+        .no-js .a11ymenu__menu .has-submenu::after {
+            @apply flex justify-center items-center h-6 w-6;
         }
+        /*.no-js .a11ymenu__menu .has-submenu .has-submenu {
+            @apply relative flex w-full h-full flex-row justify-center items-center;
+        }*/
         .a11ymenu__menu .has-submenu button>span::before,
-        .no-js .a11ymenu__menu .has-submenu::before {
+        .no-js .a11ymenu__menu .has-submenu::after {
             @apply origin-center transition duration-300 ease-out text-xl;
             content: "+";
             line-height: .1;
             /* Use origin-top if using arrows */
         }
-        .a11ymenu__menu .has-submenu button>span::before,
-        .no-js .a11ymenu__menu .has-submenu::before {}
-        .a11ymenu__menu li>button>span {
+        .a11ymenu__menu li>button>span,
+        .no-js .a11ymenu__menu .has-submenu::after {
             @apply origin-center transition duration-300 ease-out;
         }
-        .a11ymenu__menu li>button[aria-expanded="true"]>span {
+        .a11ymenu__menu li>button[aria-expanded="true"]>span,
+        .a11ymenu__menu li:hover>button[aria-expanded="false"]>span,
+        .no-js .a11ymenu__menu li:hover::after {
             transform: rotate(45deg) translate(0, 0%);
         }
-        .a11ymenu__menu li>button[aria-expanded="false"]>span {
+        .a11ymenu__menu li>button[aria-expanded="false"]>span,
+        .no-js .a11ymenu__menu li::after {
             transform: rotate(0deg) translate(0, 0%);
         }
         /* Create space for +/- where button is and adjust if javascript is turned off. */
-        .no-js .a11ymenu__menu .has-submenu {
-            @apply mr-6;
-        }
         .no-js .a11ymenu__menu .has-submenu:after {
-            @apply -right-4;
+            @apply -left-4;
         }
         .no-js .a11ymenu__menu .has-submenu .has-submenu:after {
-            @apply right-4;
+            @apply left-4;
         }
         /* Code for using an arrow instead of + / - */
         /*
@@ -385,7 +387,8 @@
                 @apply absolute bottom-0 w-full h-0.5 bg-gray-400;
                 content: "";
             }
-            .a11ymenu__menu .has-submenu>button {
+            .a11ymenu__menu .has-submenu>button,
+            .no-js .a11ymenu__menu .has-submenu::before {
                 @apply border-gray-300;
                 /* Add h-1/2 if using arrows */
             }
