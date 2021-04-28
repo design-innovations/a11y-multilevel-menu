@@ -155,6 +155,10 @@
             @apply flex flex-row justify-between flex-wrap items-center flex-row-reverse;
             /* Remove flex-row-reverse to place open/close icon on the right. */
         }
+        .a11ymenu__menu .has-submenu>a,
+        .a11ymenu__menu .has-submenu>.separator {
+            @apply pl-1;
+        }
         /* No reason to show outline when using a mouse */
         body:not(.keyboard-navigation) .a11ymenu__menu a,
         body:not(.keyboard-navigation) .a11ymenu__menu .separator,
@@ -172,7 +176,7 @@
         }
         /* All buttons */
         .a11ymenu__menu .has-submenu>button {
-            @apply flex px-2 py-2 leading-none;
+            @apply flex justify-center items-center leading-none;
         }
         /* All submenu items */
         .a11ymenu__menu button[aria-expanded="true"]+ul {
@@ -262,39 +266,32 @@
             @apply transform scale-y-0;
         }
         .a11ymenu__menu .has-submenu>button {
-            @apply m-1 -mr-2 rounded border-solid border border-gray-400;
+            @apply m-1 rounded border-solid border border-gray-400;
         }
         /* Arrow */
         .a11ymenu__menu .has-submenu button>span {
-            @apply relative flex w-full h-full flex-col justify-center items-center;
+            @apply p-1;
         }
         .no-js .a11ymenu__menu .has-submenu .has-submenu {
             @apply relative flex w-full h-full flex-row justify-center items-center;
         }
         .a11ymenu__menu .has-submenu button>span::before,
-        .no-js .a11ymenu__menu .has-submenu::before,
-        .a11ymenu__menu .has-submenu button>span::after,
-        .no-js .a11ymenu__menu .has-submenu::after {
-            @apply absolute top-1/2 w-2 h-2 border-solid border-current origin-center transition duration-300 ease-out;
-            content: "";
+        .no-js .a11ymenu__menu .has-submenu::before {
+            @apply origin-center transition duration-300 ease-out text-xl;
+            content: "+";
+            line-height: .1;
             /* Use origin-top if using arrows */
         }
         .a11ymenu__menu .has-submenu button>span::before,
-        .no-js .a11ymenu__menu .has-submenu::before {
-            @apply border-l left-0 -top-1;
-        }
-        .a11ymenu__menu .has-submenu button>span::after,
-        .no-js .a11ymenu__menu .has-submenu::after {
-            @apply border-t;
-        }
+        .no-js .a11ymenu__menu .has-submenu::before {}
         .a11ymenu__menu li>button>span {
             @apply origin-center transition duration-300 ease-out;
         }
         .a11ymenu__menu li>button[aria-expanded="true"]>span {
-            transform: rotate(45deg) translate(0, 50%);
+            transform: rotate(45deg) translate(0, 0%);
         }
         .a11ymenu__menu li>button[aria-expanded="false"]>span {
-            transform: rotate(0deg) translate(0, 50%);
+            transform: rotate(0deg) translate(0, 0%);
         }
         /* Create space for +/- where button is and adjust if javascript is turned off. */
         .no-js .a11ymenu__menu .has-submenu {
