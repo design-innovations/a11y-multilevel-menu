@@ -1,6 +1,8 @@
 # Accessible Multi-Level Drop Menu
 A responsive accessible menu with screen reader and keyboard support built in TailwindCSS & Alpine.js
 
+See example at [https://design-innovations.github.io/a11y-menu](https://design-innovations.github.io/a11y-menu)
+
 ## Fully Accessible
 
 Built from the ground up to be fully accessible for keyboard use and screen readers. Use the tab key or arrow keys to navigate the menu.
