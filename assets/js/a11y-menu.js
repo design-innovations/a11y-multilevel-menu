@@ -60,8 +60,10 @@ window.a11ymenu = function() {
                 }
                 if (combinedMenuItem.querySelector('ul')) {
                     combinedMenuItem.classList.add("has-submenu");
-                    combinedMenuItem.setAttribute("aria-expanded", "false");
                     var menuItemLink = combinedMenuItem.querySelector('a, .separator');
+                    menuItemLink.setAttribute("aria-haspopup", "true");
+                    menuItemLink.setAttribute("aria-expanded", "false");
+                    // From https://www.w3.org/WAI/tutorials/menus/flyout/
                     var btn = '<button x-spread="item" aria-expanded="false"><span><span class="sr-only">Show submenu for "' + menuItemLink.firstChild.nodeValue + '"</span></span></button>';
                     menuItemLink.insertAdjacentHTML('afterend', btn);
 
@@ -114,7 +116,6 @@ window.a11ymenu = function() {
                 if (hasSubmenuList) {
                     hasSubmenuList.forEach(function(submenuListItem) {
                         submenuListItem.classList.remove("submenu-open");
-                        submenuListItem.setAttribute('aria-expanded', "false");
                     })
                 }
                 hasButton = this.$el.querySelectorAll('button[x-spread=item]');
@@ -129,7 +130,7 @@ window.a11ymenu = function() {
         item: {
             ['@click']($event) {
                 var liContainer = $event.target.offsetParent;
-                var liContainerAttr = liContainer.getAttribute('aria-expanded');
+                var liContainerAttr = liContainer.querySelector('a, .separator').getAttribute('aria-expanded');
                 var topLevelList = $event.target.closest(".menu--top-level");
                 var closestLevelList = $event.target.closest(".has-submenu");
 
@@ -144,8 +145,8 @@ window.a11ymenu = function() {
                     allContainers = this.$el.querySelectorAll('.submenu-open');
                     if (allContainers !== null) {
                         allContainers.forEach(function(container) {
-                            container.setAttribute('aria-expanded', "false");
                             container.classList.remove("submenu-open");
+                            container.querySelector('a').setAttribute('aria-expanded', "false");
                         })
                     }
                 }
@@ -155,12 +156,12 @@ window.a11ymenu = function() {
                     if (liContainerAttr == 'false') {
                         this.submenuOpen = true;
                         liContainer.classList.add("submenu-open");
-                        liContainer.setAttribute('aria-expanded', "true");
+                        liContainer.querySelector('a, .separator').setAttribute('aria-expanded', "true");
                         liContainer.querySelector('button').setAttribute('aria-expanded', "true");
                     } else {
                         this.submenuOpen = false;
                         liContainer.classList.remove("submenu-open");
-                        liContainer.setAttribute('aria-expanded', "false");
+                        liContainer.querySelector('a, .separator').setAttribute('aria-expanded', "false");
                         liContainer.querySelector('button').setAttribute('aria-expanded', "false");
                     }
                 }
@@ -329,19 +330,24 @@ window.a11ymenu = function() {
                 var enclosingUl = $event.target.closest("ul");
                 var enclosingLi = enclosingUl.closest("li");
                 var previousButton = enclosingUl.previousElementSibling;
+                var previousLink = enclosingUl.previousElementSibling.previousElementSibling;
 
                 if ((currentItem.matches('button') && (currentItem.getAttribute('aria-expanded') == "true"))) {
-                    currentItem.setAttribute('aria-expanded', "false");
+                    /* Triggers when clicked into a menu */
                     this.submenuOpen = false;
+                    currentItem.setAttribute('aria-expanded', "false");
+                    currentItem.previousElementSibling.setAttribute('aria-expanded', "false");
                     currentItem.closest('li').classList.remove("submenu-open");
                 } else if (enclosingLi !== null) {
+                    /* Triggers when tabbed into a menu or clicking escape twice to collapse both windows */
                     this.submenuOpen = false;
                     enclosingLi.classList.remove("submenu-open");
-                    enclosingLi.setAttribute('aria-expanded', "false");
                     previousButton.setAttribute('aria-expanded', "false");
+                    previousLink.setAttribute('aria-expanded', "false");
                     previousButton.focus();
                 } else if (previousButton) {
                     previousButton.setAttribute('aria-expanded', "false");
+                    previousLink.setAttribute('aria-expanded', "false");
                 }
             }
         }

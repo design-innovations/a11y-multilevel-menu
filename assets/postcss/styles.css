@@ -275,12 +275,12 @@
         @apply absolute top-1/2 w-2 h-2 border-t border-l border-solid border-current origin-top transition duration-500 ease-out;
         content: "";
     }
-    .a11ymenu__menu li[aria-expanded="true"]>button>span:after,
+    .a11ymenu__menu li>button[aria-expanded="true"]>span:after,
     .a11ymenu__menu li:hover>button>span:after,
     .no-js .a11ymenu__menu li:hover:after {
         transform: rotate(225deg) translate(0, -50%);
     }
-    .a11ymenu__menu li[aria-expanded="false"]>button>span:after,
+    .a11ymenu__menu li>button[aria-expanded="false"]>span:after,
     .no-js .a11ymenu__menu li:after {
         transform: rotate(135deg) translate(22%, -35%);
         /* Use 135deg and -45deg for left facing arrow and use translate(0, -50%) for both. */
@@ -351,9 +351,6 @@
         }
         .a11ymenu__menu .has-submenu>button {
             @apply h-1/2 border-gray-300;
-        }
-        .a11ymenu__menu>li>ul {
-            @apply -mt-1;
         }
     }
     /* Add support for hover to work if js is turned off */
