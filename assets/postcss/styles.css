@@ -1,454 +1,494 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@layer base {
-    /* purgecss start ignore */
-    h1:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
-        @apply text-4xl;
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    @layer base {
+        /* purgecss start ignore */
+        h1:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
+            @apply text-4xl;
+        }
+        h2:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
+            @apply text-3xl;
+        }
+        h3:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
+            @apply text-2xl;
+        }
+        h4:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
+            @apply text-xl;
+        }
+        h5:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
+            @apply text-lg;
+        }
+        h6:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
+            @apply text-base;
+        }
+        h1:not([class*="mb"]),
+        h2:not([class*="mb"]),
+        h3:not([class*="mb"]),
+        h4:not([class*="mb"]),
+        h5:not([class*="mb"]),
+        h6:not([class*="mb"]) {
+            @apply mb-4;
+        }
+        .btn {
+            transition: background 0.2s 0.1s ease-in-out;
+        }
+        .outline-0 {
+            outline: none!important;
+        }
+        [x-cloak] {
+            visibility: hidden;
+            overflow: hidden;
+        }
+        body.keyboard-navigation a:focus {
+            outline: 2px solid #adbce6;
+        }
+        /* purgecss end ignore */
     }
-    h2:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
-        @apply text-3xl;
-    }
-    h3:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
-        @apply text-2xl;
-    }
-    h4:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
-        @apply text-xl;
-    }
-    h5:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
-        @apply text-lg;
-    }
-    h6:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
-        @apply text-base;
-    }
-    h1:not([class*="mb"]),
-    h2:not([class*="mb"]),
-    h3:not([class*="mb"]),
-    h4:not([class*="mb"]),
-    h5:not([class*="mb"]),
-    h6:not([class*="mb"]) {
-        @apply mb-4;
-    }
-    .btn {
-        transition: background 0.2s 0.1s ease-in-out;
-    }
-    .outline-0 {
-        outline: none!important;
-    }
-    [x-cloak] {
-        visibility: hidden;
-        overflow: hidden;
-    }
-    body.keyboard-navigation a:focus {
-        outline: 2px solid #adbce6;
-    }
-    /* purgecss end ignore */
-}
-
-@layer components {
-    /* purgecss start ignore */
-    /* -------------------------------------------------- *
+    
+    @layer components {
+        /* purgecss start ignore */
+        /* -------------------------------------------------- *
     * Tailwind Grid
     * -------------------------------------------------- */
-    .wrapper {
-        @apply border flex flex-col justify-start v-spaced p-4;
-        /* is overflow-hidden needed? */
-    }
-    .row {
-        @apply flex flex-wrap;
-    }
-    @media (max-width: theme('screens.sm-max.max')) {
+        .wrapper {
+            @apply border flex flex-col justify-start v-spaced p-4;
+            /* is overflow-hidden needed? */
+        }
         .row {
             @apply flex flex-wrap;
         }
-    }
-    .container .row,
-    .wrapper .row {
-        @apply -mx-4;
-    }
-    /* row styles */
-    .row-style--cards {
-        @apply -mx-4 px-2 py-4 bg-gray-300;
-    }
-    .col {
-        @apply w-full flex px-4 flex-col;
-    }
-    /* col styles */
-    .col-style--full-width {
-        @apply p-4 mx-4;
-    }
-    /* Content styles */
-    /* Goes into new div within .col */
-    .content-style--card {
-        @apply flex flex-col flex-grow p-4 v-spaced border;
-    }
-    /* Wrap photo in a div with this class to pull it to the edge on left, right, and top. */
-    .content-style--edge-photo {
-        @apply -mx-4 -mt-4 flex flex-col;
-    }
-    /* Used to push buttons to the bottom to line up in a row. */
-    .content-style--split {
-        @apply flex flex-col;
-    }
-    .content-style--split>*:nth-last-child(2) {
-        @apply flex-grow;
-    }
-    /* -------------------------------------------------- *
+        @media (max-width: theme('screens.sm-max.max')) {
+            .row {
+                @apply flex flex-wrap;
+            }
+        }
+        .container .row,
+        .wrapper .row {
+            @apply -mx-4;
+        }
+        /* row styles */
+        .row-style--cards {
+            @apply -mx-4 px-2 py-4 bg-gray-300;
+        }
+        .col {
+            @apply w-full flex px-4 flex-col;
+        }
+        /* col styles */
+        .col-style--full-width {
+            @apply p-4 mx-4;
+        }
+        /* Content styles */
+        /* Goes into new div within .col */
+        .content-style--card {
+            @apply flex flex-col flex-grow p-4 v-spaced border;
+        }
+        /* Wrap photo in a div with this class to pull it to the edge on left, right, and top. */
+        .content-style--edge-photo {
+            @apply -mx-4 -mt-4 flex flex-col;
+        }
+        /* Used to push buttons to the bottom to line up in a row. */
+        .content-style--split {
+            @apply flex flex-col;
+        }
+        .content-style--split>*:nth-last-child(2) {
+            @apply flex-grow;
+        }
+        /* -------------------------------------------------- *
     * Styled Objects
     * -------------------------------------------------- */
-    .btns {
-        @apply flex flex-col justify-center;
-    }
-    .btn {
-        @apply bg-gray-300 inline-block p-2 mt-4;
-    }
-    /* -------------------------------------------------- *
+        .btns {
+            @apply flex flex-col justify-center;
+        }
+        .btn {
+            @apply bg-gray-300 inline-block p-2 mt-4;
+        }
+        /* -------------------------------------------------- *
     * Menu
     * -------------------------------------------------- */
-    /* ============ Hamburger button ============ */
-    .burger {
-        @apply absolute block h-1 w-full left-0 bg-black opacity-100 rounded-md transform rotate-0 transition ease-in-out duration-300;
-    }
-    .burger-1 {
-        @apply top-1 w-full left-0;
-    }
-    .a11ymenu.mobile--open .burger-1 {
-        @apply top-4 w-0 left-1/2;
-    }
-    .burger-2 {
-        @apply top-4;
-    }
-    .a11ymenu.mobile--open .burger-2 {
-        @apply transform rotate-45;
-    }
-    .burger-3 {
-        @apply top-4;
-    }
-    .a11ymenu.mobile--open .burger-3 {
-        @apply transform -rotate-45;
-    }
-    .burger-4 {
-        @apply top-7 w-full left-0;
-    }
-    .a11ymenu.mobile--open .burger-4 {
-        @apply top-4 w-0 left-1/2;
-    }
-    /* ============ Menu Functionality ============ */
-    .a11ymenu__menu,
-    .a11ymenu__menu ul,
-    .a11ymenu__menu li {
-        @apply flex flex-col relative list-none p-0 border-0;
-    }
-    .a11ymenu__menu .has-submenu {
-        @apply flex-row;
-    }
-    /* Overflow: hidden stops the flash of submenus when loading */
-    .a11ymenu__menu {
-        @apply overflow-hidden;
-    }
-    .a11ymenu__menu:hover,
-    .a11ymenu__menu:focus-within {
-        @apply overflow-visible;
-    }
-    /* Place link and button side-by-side */
-    .a11ymenu__menu .has-submenu {
-        @apply flex flex-row justify-between flex-wrap items-center;
-    }
-    /* No reason to show outline when using a mouse */
-    body:not(.keyboard-navigation) .a11ymenu__menu a,
-    body:not(.keyboard-navigation) .a11ymenu__menu .separator,
-    body:not(.keyboard-navigation) .a11ymenu__menu button {
-        outline: none;
-    }
-    /* All submenu containers. Must have visibility: hidden to tab across top bar with menus closed. */
-    .a11ymenu__menu .has-submenu ul {
-        @apply invisible;
-        flex-basis: 100%;
-    }
-    .a11ymenu__menu a,
-    .a11ymenu__menu .separator {
-        @apply flex flex-grow flex-wrap items-center px-4 py-2 no-underline leading-5 text-black text-left;
-    }
-    /* All buttons */
-    .a11ymenu__menu .has-submenu>button {
-        @apply flex px-4 py-4 leading-none;
-    }
-    /* All submenu items */
-    .a11ymenu__menu button[aria-expanded="true"]+ul {
-        @apply visible;
-    }
-    .a11ymenu__menu button[aria-expanded="false"]+ul {
-        @apply invisible;
-    }
-    /* ---------- Mobile Only ---------- */
-    @media (max-width: theme('screens.sm-max.max')) {
-        .a11ymenu__menu {
-            @apply w-full h-0;
+        /* ============ Hamburger button ============ */
+        .burger {
+            @apply absolute block h-1 w-full left-0 bg-black opacity-100 rounded-md transform rotate-0 transition ease-in-out duration-300;
         }
-        .a11ymenu.mobile--closed .a11ymenu__menu,
-        .a11ymenu__menu .has-submenu>button[aria-expanded="false"]+ul {
-            @apply overflow-hidden;
-            max-height: 0;
+        .burger-1 {
+            @apply top-1 w-full left-0;
         }
-        .a11ymenu.mobile--open .a11ymenu__menu,
-        .a11ymenu__menu .has-submenu>button[aria-expanded="open"]+ul {
-            max-height: 2000px;
-            @apply h-auto;
+        .a11ymenu.mobile--open .burger-1 {
+            @apply top-4 w-0 left-1/2;
         }
-    }
-    @screen md {
-        .a11ymenu__menu {
+        .burger-2 {
+            @apply top-4;
+        }
+        .a11ymenu.mobile--open .burger-2 {
+            @apply transform rotate-45;
+        }
+        .burger-3 {
+            @apply top-4;
+        }
+        .a11ymenu.mobile--open .burger-3 {
+            @apply transform -rotate-45;
+        }
+        .burger-4 {
+            @apply top-7 w-full left-0;
+        }
+        .a11ymenu.mobile--open .burger-4 {
+            @apply top-4 w-0 left-1/2;
+        }
+        /* ============ Menu Functionality ============ */
+        .a11ymenu__menu,
+        .a11ymenu__menu ul,
+        .a11ymenu__menu li {
+            @apply flex flex-col relative list-none p-0 border-0;
+        }
+        .a11ymenu__menu .has-submenu {
             @apply flex-row;
         }
-        .a11ymenu__menu ul {
-            @apply absolute;
-        }
-        .a11ymenu__menu>li>a,
-        .a11ymenu__menu>li>.separator {
-            @apply justify-center;
-        }
-        .a11ymenu__menu>li>a+ul,
-        .a11ymenu__menu>li>.separator+ul,
-        .a11ymenu__menu>li>a+button+ul,
-        .a11ymenu__menu>li>.separator+button+ul {
-            @apply top-full;
-        }
-        .a11ymenu__menu ul a+ul,
-        .a11ymenu__menu ul .separator+ul,
-        .a11ymenu__menu ul a+button+ul,
-        .a11ymenu__menu ul .separator+button+ul {
-            @apply left-full;
-        }
-        .a11ymenu__menu>li:last-child a+ul,
-        .a11ymenu__menu>li:last-child .separator+ul,
-        .a11ymenu__menu>li:last-child a+button+ul,
-        .a11ymenu__menu>li:last-child .separator+button+ul {
-            right: 0;
-        }
-        .a11ymenu__menu>li:last-child ul a+ul,
-        .a11ymenu__menu>li:last-child ul .separator+ul,
-        .a11ymenu__menu>li:last-child ul a+button+ul,
-        .a11ymenu__menu>li:last-child ul .separator+button+ul {
-            left: calc(-100% - 2px);
-            width: 100%;
-        }
-    }
-    /* ============ Menu Styles ============ */
-    .a11ymenu--subtext {
-        @apply flex text-sm;
-        flex-basis: 100%;
-    }
-    /* Submenus */
-    .a11ymenu__menu ul {
-        @apply bg-gray-300 border border-gray-500 border-solid ease-in-out origin-top shadow-md transition-all delay-150 duration-300 ease-out scale-y-0;
-        min-width: 12.5rem;
-    }
-    .a11ymenu__menu ul>li {
-        @apply border-t border-gray-500 border-solid;
-    }
-    .a11ymenu__menu ul>li:first-child {
-        @apply border-t-0;
-    }
-    .a11ymenu__menu ul>li:hover,
-    .a11ymenu__menu ul>li:focus-within {
-        @apply bg-gray-100;
-    }
-    /* Open and close submenu with a click */
-    .a11ymenu__menu .has-submenu>button[aria-expanded="true"]+ul {
-        @apply transform scale-y-100;
-    }
-    .a11ymenu__menu .has-submenu>button[aria-expanded="false"]+ul {
-        @apply transform scale-y-0;
-    }
-    .a11ymenu__menu .has-submenu button {
-        @apply m-1 rounded border-solid border border-gray-400;
-    }
-    /* Arrow */
-    .a11ymenu__menu .has-submenu button>span {
-        @apply relative flex w-full h-full flex-col justify-center items-center;
-    }
-    .no-js .a11ymenu__menu .has-submenu .has-submenu {
-        @apply relative flex w-full h-full flex-row justify-center items-center;
-    }
-    .a11ymenu__menu .has-submenu button>span:after,
-    .no-js .a11ymenu__menu .has-submenu:after {
-        @apply absolute top-1/2 w-2 h-2 border-t border-l border-solid border-current origin-top transition duration-500 ease-out;
-        content: "";
-    }
-    .a11ymenu__menu li>button[aria-expanded="true"]>span:after,
-    .a11ymenu__menu li:hover>button>span:after,
-    .no-js .a11ymenu__menu li:hover:after {
-        transform: rotate(225deg) translate(0, -50%);
-    }
-    .a11ymenu__menu li>button[aria-expanded="false"]>span:after,
-    .no-js .a11ymenu__menu li:after {
-        transform: rotate(135deg) translate(22%, -35%);
-        /* Use 135deg and -45deg for left facing arrow and use translate(0, -50%) for both. */
-    }
-    /* Create space for arrow where button is and adjust arrow if javascript is turned off. */
-    .no-js .a11ymenu__menu .has-submenu {
-        @apply mr-6;
-    }
-    .no-js .a11ymenu__menu .has-submenu:after {
-        @apply -right-4;
-    }
-    .no-js .a11ymenu__menu .has-submenu .has-submenu:after {
-        @apply right-4;
-    }
-    @media (max-width: theme('screens.sm-max.max')) {
+        /* Overflow: hidden stops the flash of submenus when loading */
         .a11ymenu__menu {
-            @apply border border-b-0 border-gray-500 -mb-4 mt-4;
+            @apply overflow-hidden;
         }
-        .a11ymenu__menu .has-submenu button {
-            @apply bg-gray-200;
+        .a11ymenu__menu:hover,
+        .a11ymenu__menu:focus-within {
+            @apply overflow-visible;
         }
-        /* Set up animations for container and buttons */
-        .a11ymenu__menu,
-        .a11ymenu__menu .has-submenu>button+ul {
-            @apply transition-all duration-300 ease-out origin-top;
+        /* Place link and button side-by-side */
+        .a11ymenu__menu .has-submenu {
+            @apply flex flex-row justify-between flex-wrap items-center flex-row-reverse;
+            /* Remove flex-row-reverse to place open/close icon on the right. */
         }
-        /* Main level */
-        .a11ymenu__menu>li {
-            @apply border-0 border-solid border-b border-gray-500;
+        /* No reason to show outline when using a mouse */
+        body:not(.keyboard-navigation) .a11ymenu__menu a,
+        body:not(.keyboard-navigation) .a11ymenu__menu .separator,
+        body:not(.keyboard-navigation) .a11ymenu__menu button {
+            outline: none;
+        }
+        /* All submenu containers. Must have visibility: hidden to tab across top bar with menus closed. */
+        .a11ymenu__menu .has-submenu ul {
+            @apply invisible;
+            flex-basis: 100%;
+        }
+        .a11ymenu__menu a,
+        .a11ymenu__menu .separator {
+            @apply flex flex-grow flex-wrap items-center px-4 py-2 no-underline leading-5 text-black text-left;
+        }
+        /* All buttons */
+        .a11ymenu__menu .has-submenu>button {
+            @apply flex px-2 py-2 leading-none;
+        }
+        /* All submenu items */
+        .a11ymenu__menu button[aria-expanded="true"]+ul {
+            @apply visible;
+        }
+        .a11ymenu__menu button[aria-expanded="false"]+ul {
+            @apply invisible;
+        }
+        /* ---------- Mobile Only ---------- */
+        @media (max-width: theme('screens.sm-max.max')) {
+            .a11ymenu__menu {
+                @apply w-full h-0;
+            }
+            .a11ymenu.mobile--closed .a11ymenu__menu,
+            .a11ymenu__menu .has-submenu>button[aria-expanded="false"]+ul {
+                @apply overflow-hidden;
+                max-height: 0;
+            }
+            .a11ymenu.mobile--open .a11ymenu__menu,
+            .a11ymenu__menu .has-submenu>button[aria-expanded="open"]+ul {
+                max-height: 2000px;
+                @apply h-auto;
+            }
+        }
+        @screen md {
+            .a11ymenu__menu {
+                @apply flex-row;
+            }
+            .a11ymenu__menu ul {
+                @apply absolute;
+            }
+            .a11ymenu__menu>li>a,
+            .a11ymenu__menu>li>.separator {
+                @apply justify-center;
+            }
+            .a11ymenu__menu>li>a+ul,
+            .a11ymenu__menu>li>.separator+ul,
+            .a11ymenu__menu>li>a+button+ul,
+            .a11ymenu__menu>li>.separator+button+ul {
+                @apply top-full;
+            }
+            .a11ymenu__menu ul a+ul,
+            .a11ymenu__menu ul .separator+ul,
+            .a11ymenu__menu ul a+button+ul,
+            .a11ymenu__menu ul .separator+button+ul {
+                @apply left-full;
+            }
+            .a11ymenu__menu>li:last-child a+ul,
+            .a11ymenu__menu>li:last-child .separator+ul,
+            .a11ymenu__menu>li:last-child a+button+ul,
+            .a11ymenu__menu>li:last-child .separator+button+ul {
+                right: 0;
+            }
+            .a11ymenu__menu>li:last-child ul a+ul,
+            .a11ymenu__menu>li:last-child ul .separator+ul,
+            .a11ymenu__menu>li:last-child ul a+button+ul,
+            .a11ymenu__menu>li:last-child ul .separator+button+ul {
+                left: calc(-100% - 2px);
+                width: 100%;
+            }
+        }
+        /* ============ Menu Styles ============ */
+        .a11ymenu--subtext {
+            @apply flex text-sm;
+            flex-basis: 100%;
         }
         /* Submenus */
         .a11ymenu__menu ul {
-            @apply border-0 border-t border-gray-500 border-solid;
+            @apply bg-gray-300 border border-gray-500 border-solid ease-in-out origin-top shadow-md transition-all delay-150 duration-300 ease-out scale-y-0;
+            min-width: 12.5rem;
         }
-        .a11ymenu.mobile--closed .a11ymenu__menu {
-            @apply transform scale-y-0;
+        .a11ymenu__menu ul>li {
+            @apply border-t border-gray-500 border-solid;
         }
-        .a11ymenu.mobile--open .a11ymenu__menu {
+        .a11ymenu__menu ul>li:first-child {
+            @apply border-t-0;
+        }
+        .a11ymenu__menu ul>li:hover,
+        .a11ymenu__menu ul>li:focus-within {
+            @apply bg-gray-100;
+        }
+        /* Open and close submenu with a click */
+        .a11ymenu__menu .has-submenu>button[aria-expanded="true"]+ul {
             @apply transform scale-y-100;
         }
-        /* Add prefix symbols to submenus to show level. Add more if menu is deeper than 2 levels. */
-        .a11ymenu.mobile--closed .a11ymenu__menu,
-        .a11ymenu__menu .has-submenu>button[aria-expanded="false"]+ul {}
-        .a11ymenu__menu ul>li>a::before,
-        .a11ymenu__menu ul>li>span::before {
-            @apply inline-block mr-2;
-            content: "- ";
-        }
-        .a11ymenu__menu ul ul>li>a::before,
-        .a11ymenu__menu ul ul>li>span::before {
-            @apply inline-block mr-2;
-            content: "- - ";
-        }
-    }
-    @screen md {
-        .a11ymenu--subtext {
-            @apply justify-center;
-        }
-        .a11ymenu__menu>li>a,
-        .a11ymenu__menu>li>.separator {
-            @apply text-center justify-center;
-        }
-        /* Hover underline on top level */
-        .a11ymenu__menu>li:hover:before,
-        .a11ymenu__menu>li:focus-within:before {
-            @apply absolute bottom-0 w-full h-0.5 bg-gray-400;
-            content: "";
+        .a11ymenu__menu .has-submenu>button[aria-expanded="false"]+ul {
+            @apply transform scale-y-0;
         }
         .a11ymenu__menu .has-submenu>button {
-            @apply h-1/2 border-gray-300;
+            @apply m-1 -mr-2 rounded border-solid border border-gray-400;
         }
+        /* Arrow */
+        .a11ymenu__menu .has-submenu button>span {
+            @apply relative flex w-full h-full flex-col justify-center items-center;
+        }
+        .no-js .a11ymenu__menu .has-submenu .has-submenu {
+            @apply relative flex w-full h-full flex-row justify-center items-center;
+        }
+        .a11ymenu__menu .has-submenu button>span::before,
+        .no-js .a11ymenu__menu .has-submenu::before,
+        .a11ymenu__menu .has-submenu button>span::after,
+        .no-js .a11ymenu__menu .has-submenu::after {
+            @apply absolute top-1/2 w-2 h-2 border-solid border-current origin-center transition duration-300 ease-out;
+            content: "";
+            /* Use origin-top if using arrows */
+        }
+        .a11ymenu__menu .has-submenu button>span::before,
+        .no-js .a11ymenu__menu .has-submenu::before {
+            @apply border-l left-0 -top-1;
+        }
+        .a11ymenu__menu .has-submenu button>span::after,
+        .no-js .a11ymenu__menu .has-submenu::after {
+            @apply border-t;
+        }
+        .a11ymenu__menu li>button>span {
+            @apply origin-center transition duration-300 ease-out;
+        }
+        .a11ymenu__menu li>button[aria-expanded="true"]>span {
+            transform: rotate(45deg) translate(0, 50%);
+        }
+        .a11ymenu__menu li>button[aria-expanded="false"]>span {
+            transform: rotate(0deg) translate(0, 50%);
+        }
+        /* Create space for +/- where button is and adjust if javascript is turned off. */
+        .no-js .a11ymenu__menu .has-submenu {
+            @apply mr-6;
+        }
+        .no-js .a11ymenu__menu .has-submenu:after {
+            @apply -right-4;
+        }
+        .no-js .a11ymenu__menu .has-submenu .has-submenu:after {
+            @apply right-4;
+        }
+        /* Code for using an arrow instead of + / - */
+        /*
+        .a11ymenu__menu .has-submenu button>span:after,
+        .no-js .a11ymenu__menu .has-submenu:after {
+            @apply absolute top-1/2 w-2 h-2 border-t border-l border-solid border-current origin-top transition duration-500 ease-out;
+            content: "";
+        }
+        .a11ymenu__menu li>button[aria-expanded="true"]>span:after,
+        .a11ymenu__menu li:hover>button>span:after,
+        .no-js .a11ymenu__menu li:hover:after {
+            transform: rotate(225deg) translate(0, -50%);
+        }
+        .a11ymenu__menu li>button[aria-expanded="false"]>span:after,
+        .no-js .a11ymenu__menu li:after {
+            transform: rotate(135deg) translate(22%, -35%);
+            /* Use 135deg and -45deg for left facing arrow and use translate(0, -50%) for both. *
+        }
+        /* Create space for arrow where button is and adjust arrow if javascript is turned off. *
+        .no-js .a11ymenu__menu .has-submenu {
+            @apply mr-6;
+        }
+        .no-js .a11ymenu__menu .has-submenu:after {
+            @apply -right-4;
+        }
+        .no-js .a11ymenu__menu .has-submenu .has-submenu:after {
+            @apply right-4;
+        }
+        */
+        @media (max-width: theme('screens.sm-max.max')) {
+            .a11ymenu__menu {
+                @apply border border-b-0 border-gray-500 -mb-4 mt-4;
+            }
+            .a11ymenu__menu .has-submenu button {
+                @apply bg-gray-200;
+            }
+            /* Set up animations for container and buttons */
+            .a11ymenu__menu,
+            .a11ymenu__menu .has-submenu>button+ul {
+                @apply transition-all duration-300 ease-out origin-top;
+            }
+            /* Main level */
+            .a11ymenu__menu>li {
+                @apply border-0 border-solid border-b border-gray-500;
+            }
+            /* Submenus */
+            .a11ymenu__menu ul {
+                @apply border-0 border-t border-gray-500 border-solid;
+            }
+            .a11ymenu.mobile--closed .a11ymenu__menu {
+                @apply transform scale-y-0;
+            }
+            .a11ymenu.mobile--open .a11ymenu__menu {
+                @apply transform scale-y-100;
+            }
+            /* Add prefix symbols to submenus to show level. Add more if menu is deeper than 2 levels. */
+            .a11ymenu.mobile--closed .a11ymenu__menu,
+            .a11ymenu__menu .has-submenu>button[aria-expanded="false"]+ul {}
+            .a11ymenu__menu ul>li>a::before,
+            .a11ymenu__menu ul>li>span::before {
+                @apply inline-block mr-2;
+                content: "- ";
+            }
+            .a11ymenu__menu ul ul>li>a::before,
+            .a11ymenu__menu ul ul>li>span::before {
+                @apply inline-block mr-2;
+                content: "- - ";
+            }
+        }
+        @screen md {
+            .a11ymenu--subtext {
+                @apply justify-center;
+            }
+            .a11ymenu__menu>li>a,
+            .a11ymenu__menu>li>.separator {
+                @apply text-center justify-center;
+            }
+            /* Hover underline on top level */
+            .a11ymenu__menu>li:hover:before,
+            .a11ymenu__menu>li:focus-within:before {
+                @apply absolute bottom-0 w-full h-0.5 bg-gray-400;
+                content: "";
+            }
+            .a11ymenu__menu .has-submenu>button {
+                @apply border-gray-300;
+                /* Add h-1/2 if using arrows */
+            }
+        }
+        /* Add support for hover to work if js is turned off */
+        .no-js .a11ymenu__menu li:hover>ul {
+            @apply visible transform scale-y-100;
+        }
+        /* Uncomment to use hover instead of click */
+        /*
+        .a11ymenu__menu li:hover>ul {
+            @apply transform scale-y-100;
+        }
+        .a11ymenu__menu .has-submenu:hover>ul,
+        .a11ymenu__menu .has-submenu:hover>button+ul {
+            @apply visible;
+        }
+        .a11ymenu__menu .has-submenu:hover>button[aria-expanded="false"]+ul {
+            @apply transform scale-y-100;
+        }
+        */
+        /* purgecss end ignore */
     }
-    /* Add support for hover to work if js is turned off */
-    .no-js .a11ymenu__menu li:hover>ul {
-        @apply visible transform scale-y-100;
-    }
-    /* Uncomment to use hover instead of click */
-    /*
-    .a11ymenu__menu li:hover>ul {
-        @apply transform scale-y-100;
-    }
-    .a11ymenu__menu .has-submenu:hover>ul,
-    .a11ymenu__menu .has-submenu:hover>button+ul {
-        @apply visible;
-    }
-    .a11ymenu__menu .has-submenu:hover>button[aria-expanded="false"]+ul {
-        @apply transform scale-y-100;
-    }
-    */
-    /* purgecss end ignore */
-}
-
-@layer utilities {
-    /* purgecss start ignore */
-    /* Used to only add space between items in an area. It won't add margins to top or under what it is placed on. The sm-max breakpoint is especially helpful for mobile layouts when they collapse into a single column of boxes. */
-    .v-spaced>* {
-        @apply my-0;
-    }
-    .v-spaced>*+* {
-        @apply mt-4;
-    }
-    /* You will typically add class="row sm-max:v-spaced" to add space between columns on mobile. */
-    @media (max-width: theme('screens.sm-max.max')) {
-        .sm-max\:v-spaced>* {
+    
+    @layer utilities {
+        /* purgecss start ignore */
+        /* Used to only add space between items in an area. It won't add margins to top or under what it is placed on. The sm-max breakpoint is especially helpful for mobile layouts when they collapse into a single column of boxes. */
+        .v-spaced>* {
             @apply my-0;
         }
-        .sm-max\:v-spaced>*+* {
+        .v-spaced>*+* {
             @apply mt-4;
         }
-    }
-    @screen md {
-        .md\:v-spaced>* {
-            margin-top: 0px;
-            margin-bottom: 0px;
+        /* You will typically add class="row sm-max:v-spaced" to add space between columns on mobile. */
+        @media (max-width: theme('screens.sm-max.max')) {
+            .sm-max\:v-spaced>* {
+                @apply my-0;
+            }
+            .sm-max\:v-spaced>*+* {
+                @apply mt-4;
+            }
         }
-        .md\:v-spaced>*+* {
-            margin-top: 1rem;
+        @screen md {
+            .md\:v-spaced>* {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            .md\:v-spaced>*+* {
+                margin-top: 1rem;
+            }
         }
-    }
-     :root {
-        --debug-breakpoint: "xs (<640px)";
-    }
-    #debug-box {
-        content: var(--debug-current-size);
-        background: rgb(231, 231, 231);
-        border: solid 1px rgb(112, 112, 112);
-        font-size: 12px;
-        padding: .2em;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        z-index: 9999999;
-    }
-    #debug-box::before {
-        content: var(--debug-breakpoint);
-        background: rgb(231, 231, 231);
-        border: solid 1px rgb(112, 112, 112);
-        font-size: 12px;
-        padding: .2em;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        z-index: 9999999;
-    }
-    @screen sm {
-        #debug-box:before {
-            --debug-breakpoint: "sm (640px)";
+         :root {
+            --debug-breakpoint: "xs (<640px)";
         }
-    }
-    @screen md {
-        #debug-box:before {
-            --debug-breakpoint: "md (768px)";
+        #debug-box {
+            content: var(--debug-current-size);
+            background: rgb(231, 231, 231);
+            border: solid 1px rgb(112, 112, 112);
+            font-size: 12px;
+            padding: .2em;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 9999999;
         }
-    }
-    @screen lg {
-        #debug-box:before {
-            --debug-breakpoint: "lg (1024px)";
+        #debug-box::before {
+            content: var(--debug-breakpoint);
+            background: rgb(231, 231, 231);
+            border: solid 1px rgb(112, 112, 112);
+            font-size: 12px;
+            padding: .2em;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 9999999;
         }
-    }
-    @screen xl {
-        #debug-box:before {
-            --debug-breakpoint: "xl (1280px)";
+        @screen sm {
+            #debug-box:before {
+                --debug-breakpoint: "sm (640px)";
+            }
         }
-    }
-    @screen 2xl {
-        #debug-box:before {
-            --debug-breakpoint: "2xl (1536px)";
+        @screen md {
+            #debug-box:before {
+                --debug-breakpoint: "md (768px)";
+            }
         }
+        @screen lg {
+            #debug-box:before {
+                --debug-breakpoint: "lg (1024px)";
+            }
+        }
+        @screen xl {
+            #debug-box:before {
+                --debug-breakpoint: "xl (1280px)";
+            }
+        }
+        @screen 2xl {
+            #debug-box:before {
+                --debug-breakpoint: "2xl (1536px)";
+            }
+        }
+        /* purgecss end ignore */
     }
-    /* purgecss end ignore */
-}

@@ -118,7 +118,7 @@ window.a11ymenu = function() {
                         submenuListItem.classList.remove("submenu-open");
                     })
                 }
-                hasButton = this.$el.querySelectorAll('button[x-spread=item]');
+                hasButton = this.$el.querySelectorAll('button[x-spread=item], a[x-spread=item], .separator');
                 if (hasButton) {
                     hasButton.forEach(function(hasButtonItem) {
                         hasButtonItem.setAttribute('aria-expanded', "false");
