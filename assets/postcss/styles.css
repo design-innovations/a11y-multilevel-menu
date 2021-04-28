@@ -152,7 +152,7 @@
     }
     /* Place link and button side-by-side */
     .a11ymenu__menu .has-submenu {
-        @apply flex flex-row justify-between flex-wrap;
+        @apply flex flex-row justify-between flex-wrap items-center;
     }
     /* No reason to show outline when using a mouse */
     body:not(.keyboard-navigation) .a11ymenu__menu a,
@@ -171,7 +171,7 @@
     }
     /* All buttons */
     .a11ymenu__menu .has-submenu>button {
-        @apply flex px-5 py-4 leading-none;
+        @apply flex px-4 py-4 leading-none;
     }
     /* All submenu items */
     .a11ymenu__menu button[aria-expanded="true"]+ul {
@@ -262,6 +262,9 @@
     }
     .a11ymenu__menu .has-submenu>button[aria-expanded="false"]+ul {
         @apply transform scale-y-0;
+    }
+    .a11ymenu__menu .has-submenu>button {
+        @apply border border-gray-300 h-1/2 rounded;
     }
     /* Arrow */
     .a11ymenu__menu .has-submenu button>span {
