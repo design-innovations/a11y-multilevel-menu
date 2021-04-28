@@ -21,12 +21,12 @@
     h6:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
         @apply text-base;
     }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1:not([class*="mb"]),
+    h2:not([class*="mb"]),
+    h3:not([class*="mb"]),
+    h4:not([class*="mb"]),
+    h5:not([class*="mb"]),
+    h6:not([class*="mb"]) {
         @apply mb-4;
     }
     .btn {
@@ -239,9 +239,6 @@
         flex-basis: 100%;
     }
     /* Submenus */
-    .a11ymenu__menu>ul {
-        @apply -mt-1;
-    }
     .a11ymenu__menu ul {
         @apply bg-gray-300 border border-gray-500 border-solid ease-in-out origin-top shadow-md transition-all delay-150 duration-300 ease-out scale-y-0;
         min-width: 12.5rem;
@@ -263,8 +260,8 @@
     .a11ymenu__menu .has-submenu>button[aria-expanded="false"]+ul {
         @apply transform scale-y-0;
     }
-    .a11ymenu__menu .has-submenu>button {
-        @apply border border-gray-300 h-1/2 rounded;
+    .a11ymenu__menu .has-submenu button {
+        @apply m-1 rounded border-solid border border-gray-400;
     }
     /* Arrow */
     .a11ymenu__menu .has-submenu button>span {
@@ -281,11 +278,12 @@
     .a11ymenu__menu li[aria-expanded="true"]>button>span:after,
     .a11ymenu__menu li:hover>button>span:after,
     .no-js .a11ymenu__menu li:hover:after {
-        transform: rotate( -135deg) translate(0, -50%);
+        transform: rotate(225deg) translate(0, -50%);
     }
     .a11ymenu__menu li[aria-expanded="false"]>button>span:after,
     .no-js .a11ymenu__menu li:after {
-        transform: rotate(-45deg) translate(0, -50%);
+        transform: rotate(135deg) translate(22%, -35%);
+        /* Use 135deg and -45deg for left facing arrow and use translate(0, -50%) for both. */
     }
     /* Create space for arrow where button is and adjust arrow if javascript is turned off. */
     .no-js .a11ymenu__menu .has-submenu {
@@ -301,6 +299,9 @@
         .a11ymenu__menu {
             @apply border border-b-0 border-gray-500 -mb-4 mt-4;
         }
+        .a11ymenu__menu .has-submenu button {
+            @apply bg-gray-200;
+        }
         /* Set up animations for container and buttons */
         .a11ymenu__menu,
         .a11ymenu__menu .has-submenu>button+ul {
@@ -309,9 +310,6 @@
         /* Main level */
         .a11ymenu__menu>li {
             @apply border-0 border-solid border-b border-gray-500;
-        }
-        .a11ymenu__menu .has-submenu button {
-            @apply border-0 border-solid border-l border-gray-400 bg-gray-200;
         }
         /* Submenus */
         .a11ymenu__menu ul {
@@ -350,6 +348,12 @@
         .a11ymenu__menu>li:focus-within:before {
             @apply absolute bottom-0 w-full h-0.5 bg-gray-400;
             content: "";
+        }
+        .a11ymenu__menu .has-submenu>button {
+            @apply h-1/2 border-gray-300;
+        }
+        .a11ymenu__menu>li>ul {
+            @apply -mt-1;
         }
     }
     /* Add support for hover to work if js is turned off */
