@@ -62,7 +62,7 @@ window.a11ymenu = function() {
                     combinedMenuItem.classList.add("has-submenu");
                     combinedMenuItem.setAttribute("aria-expanded", "false");
                     var menuItemLink = combinedMenuItem.querySelector('a, .separator');
-                    var btn = '<button x-spread="item" aria-expanded="false"><span><span class="sr-only">Show submenu for “' + menuItemLink.text + '”</span></span></button>';
+                    var btn = '<button x-spread="item" aria-expanded="false"><span><span class="sr-only">Show submenu for "' + menuItemLink.firstChild.nodeValue + '"</span></span></button>';
                     menuItemLink.insertAdjacentHTML('afterend', btn);
 
                     var menuItemSpans = combinedMenuItem.querySelectorAll('span.separator');
