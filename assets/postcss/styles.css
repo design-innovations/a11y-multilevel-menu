@@ -290,7 +290,6 @@
             @apply origin-center transition duration-300 ease-out;
         }
         .a11ymenu__menu li>button[aria-expanded="true"]>span,
-        .a11ymenu__menu li:hover>button[aria-expanded="false"]>span,
         .no-js .a11ymenu__menu li:hover::after {
             transform: rotate(45deg) translate(0, 0%);
         }
@@ -408,6 +407,9 @@
         }
         .a11ymenu__menu .has-submenu:hover>button[aria-expanded="false"]+ul {
             @apply transform scale-y-100;
+        }
+        .a11ymenu__menu li:hover>button[aria-expanded="false"]>span {
+            transform: rotate(45deg) translate(0, 0%);
         }
         */
         /* purgecss end ignore */
