@@ -24,7 +24,9 @@ async function compile() {
                     current: 'currentColor',
                     black: colors.black,
                     white: colors.white,
-                    gray: colors.coolGray
+                    gray: colors.coolGray,
+                    warmgray: colors.warmGray,
+                    blue: '#2373B7',
                 },
                 extend: {
                     screens: {
@@ -43,6 +45,7 @@ async function compile() {
             },
             variants: {
                 opacity: ['responsive', 'hover'],
+                margin: ['focus', 'focus-within'],
                 borderWidth: ['responsive', 'first', 'last', 'hover', 'focus'],
                 width: ['responsive', 'hover', 'focus-within'],
                 extend: {
