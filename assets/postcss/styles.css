@@ -2,6 +2,13 @@
     @tailwind components;
     @tailwind utilities;
     @layer base {
+        body {
+            @apply text-warmgray-700;
+        }
+        a,
+        .separator {
+            @apply text-warmgray-600;
+        }
         /* purgecss start ignore */
         h1:not([class*="text-lg"]):not([class*="text-xs"]):not([class*="text-sm"]):not([class*="text-base"]):not([class*="text-xl"]) {
             @apply text-4xl;
@@ -52,7 +59,7 @@
     * Tailwind Grid
     * -------------------------------------------------- */
         .wrapper {
-            @apply border flex flex-col justify-start v-spaced p-4;
+            @apply border border-warmgray-200 flex flex-col justify-start v-spaced p-4;
             /* is overflow-hidden needed? */
         }
         .row {
@@ -81,7 +88,7 @@
         /* Content styles */
         /* Goes into new div within .col */
         .content-style--card {
-            @apply flex flex-col flex-grow p-4 v-spaced border;
+            @apply flex flex-col flex-grow p-4 v-spaced border border-warmgray-200;
         }
         /* Wrap photo in a div with this class to pull it to the edge on left, right, and top. */
         .content-style--edge-photo {
@@ -108,7 +115,7 @@
     * -------------------------------------------------- */
         /* ============ Hamburger button ============ */
         .burger {
-            @apply absolute block h-1 w-full left-0 bg-black opacity-100 rounded-md transform rotate-0 transition ease-in-out duration-300;
+            @apply absolute block h-1 w-full left-0 bg-warmgray-700 opacity-100 rounded-md transform rotate-0 transition ease-in-out duration-300;
         }
         .burger-1 {
             @apply top-1 w-full left-0;
@@ -173,7 +180,7 @@
         }
         .a11ymenu__menu a,
         .a11ymenu__menu .separator {
-            @apply flex flex-grow flex-wrap items-center px-4 py-2 no-underline leading-5 text-black text-left;
+            @apply flex flex-grow flex-wrap items-center px-4 py-2 no-underline leading-5 text-warmgray-700 text-left;
         }
         /* All buttons */
         .a11ymenu__menu .has-submenu>button {
@@ -246,18 +253,18 @@
         }
         /* Submenus */
         .a11ymenu__menu ul {
-            @apply bg-gray-300 border border-gray-500 border-solid ease-in-out origin-top shadow-md transition-all delay-150 duration-300 ease-out scale-y-0;
+            @apply bg-warmgray-300 border border-warmgray-500 border-solid ease-in-out origin-top shadow-md transition-all delay-150 duration-300 ease-out scale-y-0;
             min-width: 12.5rem;
         }
         .a11ymenu__menu ul>li {
-            @apply border-t border-gray-500 border-solid;
+            @apply border-t border-warmgray-500 border-solid;
         }
         .a11ymenu__menu ul>li:first-child {
             @apply border-t-0;
         }
         .a11ymenu__menu ul>li:hover,
         .a11ymenu__menu ul>li:focus-within {
-            @apply bg-gray-100;
+            @apply bg-warmgray-100;
         }
         /* Open and close submenu with a click */
         .a11ymenu__menu .has-submenu>button[aria-expanded="true"]+ul {
@@ -267,7 +274,7 @@
             @apply transform scale-y-0;
         }
         .a11ymenu__menu .has-submenu>button {
-            @apply m-1 rounded border-solid border border-gray-400;
+            @apply m-1 rounded border-solid border border-warmgray-400;
         }
         /* Expand/collapse icon */
         .a11ymenu__menu .has-submenu button>span {
@@ -338,7 +345,7 @@
                 @apply border border-b-0 border-gray-500 -mb-4 mt-4;
             }
             .a11ymenu__menu .has-submenu button {
-                @apply bg-gray-200;
+                @apply bg-warmgray-200;
             }
             /* Set up animations for container and buttons */
             .a11ymenu__menu,
@@ -347,11 +354,11 @@
             }
             /* Main level */
             .a11ymenu__menu>li {
-                @apply border-0 border-solid border-b border-gray-500;
+                @apply border-0 border-solid border-b border-warmgray-500;
             }
             /* Submenus */
             .a11ymenu__menu ul {
-                @apply border-0 border-t border-gray-500 border-solid;
+                @apply border-0 border-t border-warmgray-500 border-solid;
             }
             .a11ymenu.mobile--closed .a11ymenu__menu {
                 @apply transform scale-y-0;
@@ -389,7 +396,7 @@
             }
             .a11ymenu__menu .has-submenu>button,
             .no-js .a11ymenu__menu .has-submenu::before {
-                @apply border-gray-300;
+                @apply border-warmgray-300;
                 /* Add h-1/2 if using arrows */
             }
         }
