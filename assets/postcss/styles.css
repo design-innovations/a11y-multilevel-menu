@@ -172,6 +172,9 @@
         .a11ymenu__menu .has-submenu>.separator {
             @apply pl-1;
         }
+        .a11ymenu__menu .has-submenu>.separator {
+            @apply cursor-pointer;
+        }
         /* No reason to show outline when using a mouse */
         body:not(.keyboard-navigation) .a11ymenu__menu a,
         body:not(.keyboard-navigation) .a11ymenu__menu .separator,

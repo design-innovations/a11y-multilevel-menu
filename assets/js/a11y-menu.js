@@ -156,7 +156,7 @@ window.a11ymenu = function() {
                 }
 
                 // If click and the container is set as aria-expanded=false then set it as true and add class.
-                if (($event.target == closestLevelList.querySelector('button')) || ($event.target == closestLevelList.querySelector('button>span'))) {
+                if (($event.target == closestLevelList.querySelector('button')) || ($event.target == closestLevelList.querySelector('button>span')) || ($event.target == closestLevelList.querySelector('.separator'))) {
                     if (liContainerAttr == 'false') {
                         this.submenuOpen = true;
                         liContainer.classList.add("submenu-open");
