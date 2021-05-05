@@ -94,6 +94,10 @@ window.a11ymenu = function() {
                     return 'mobile--closed'
                 };
             },
+            ["@click.away"]($event) {
+                this.isOpen = false;
+                this.burger = false;
+            },
         },
         burgerTrigger: {
             ['@click']() {
